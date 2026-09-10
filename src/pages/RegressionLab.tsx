@@ -16,6 +16,7 @@ import { MetricsPanel } from "@/components/MetricsPanel";
 import { ModelControls } from "@/components/ModelControls";
 import { RegressionChart } from "@/components/RegressionChart";
 import { ResidualTable } from "@/components/ResidualTable";
+import { SiteNav } from "@/components/SiteNav";
 import { Term } from "@/components/Term";
 import { Button } from "@/components/ui/button";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -125,10 +126,8 @@ export default function RegressionLab() {
                 See how Linear Regression learns from data.
               </p>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-                Runs entirely in your browser
-              </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <SiteNav />
               <Button variant="ghost" size="sm" onClick={resetEverything}>
                 <RotateCcw className="size-3.5" /> Reset everything
               </Button>

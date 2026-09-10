@@ -10,33 +10,64 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConceptsRouteImport } from './routes/concepts'
+import { Route as GradientDescentRouteImport } from './routes/gradient-descent'
+import { Route as LinearRegressionRouteImport } from './routes/linear-regression'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConceptsRoute = ConceptsRouteImport.update({
+  id: '/concepts',
+  path: '/concepts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GradientDescentRoute = GradientDescentRouteImport.update({
+  id: '/gradient-descent',
+  path: '/gradient-descent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinearRegressionRoute = LinearRegressionRouteImport.update({
+  id: '/linear-regression',
+  path: '/linear-regression',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/concepts': typeof ConceptsRoute
+  '/gradient-descent': typeof GradientDescentRoute
+  '/linear-regression': typeof LinearRegressionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/concepts': typeof ConceptsRoute
+  '/gradient-descent': typeof GradientDescentRoute
+  '/linear-regression': typeof LinearRegressionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/concepts': typeof ConceptsRoute
+  '/gradient-descent': typeof GradientDescentRoute
+  '/linear-regression': typeof LinearRegressionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
+  id:
+    '__root__' | '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConceptsRoute: typeof ConceptsRoute
+  GradientDescentRoute: typeof GradientDescentRoute
+  LinearRegressionRoute: typeof LinearRegressionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +79,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/concepts': {
+      id: '/concepts'
+      path: '/concepts'
+      fullPath: '/concepts'
+      preLoaderRoute: typeof ConceptsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gradient-descent': {
+      id: '/gradient-descent'
+      path: '/gradient-descent'
+      fullPath: '/gradient-descent'
+      preLoaderRoute: typeof GradientDescentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linear-regression': {
+      id: '/linear-regression'
+      path: '/linear-regression'
+      fullPath: '/linear-regression'
+      preLoaderRoute: typeof LinearRegressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConceptsRoute: ConceptsRoute,
+  GradientDescentRoute: GradientDescentRoute,
+  LinearRegressionRoute: LinearRegressionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
