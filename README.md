@@ -284,14 +284,14 @@ The objective is to make these relationships **visible and interactive**.
 
 ### Phase 2 — Gradient Descent
 
-* [ ] Gradient calculation
-* [ ] Parameter updates
-* [ ] Step-by-step learning
-* [ ] Learning-rate controls
-* [ ] Loss vs iteration
-* [ ] Parameter trajectory
-* [ ] Convergence visualization
-* [ ] OLS vs Gradient Descent comparison
+* [x] Gradient calculation
+* [x] Parameter updates
+* [x] Step-by-step learning
+* [x] Learning-rate controls
+* [x] Loss vs iteration
+* [x] Parameter trajectory
+* [x] Convergence visualization
+* [x] OLS vs Gradient Descent comparison
 
 ### Phase 3 — Polynomial Regression
 
