@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import RegressionLab from "@/pages/RegressionLab";
+import HomePage from "@/pages/HomePage";
 
-const title = "Regression Lab — See how Linear Regression learns from data";
+const title = "Regression Lab — See how regression learns from data";
 const description =
-  "An interactive, browser-only lab for absolute beginners: edit data, move the line, and watch predictions, residuals and mean squared error update live.";
+  "An interactive visualization tool that helps beginners understand what happens inside regression models—from data and predictions to errors, loss, and optimization.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -14,5 +14,5 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
     ],
   }),
-  component: RegressionLab,
+  component: HomePage,
 });

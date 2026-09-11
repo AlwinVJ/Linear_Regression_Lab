@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 
 const items = [
-  { to: "/", label: "Playground" },
+  { to: "/", label: "Home" },
+  { to: "/playground", label: "Playground" },
   { to: "/linear-regression", label: "Linear Regression" },
   { to: "/gradient-descent", label: "Gradient Descent" },
   { to: "/concepts", label: "Concepts" },
@@ -14,7 +15,7 @@ export function SiteNav() {
         <Link
           key={it.to}
           to={it.to}
-          activeOptions={{ exact: it.to === "/" }}
+          activeOptions={{ exact: true }}
           className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-accent/20 data-[status=active]:text-foreground"
         >
           {it.label}

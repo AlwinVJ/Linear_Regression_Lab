@@ -64,7 +64,7 @@ export default function LinearRegressionPage() {
               </p>
               <p>
                 Want to move the line yourself?{" "}
-                <Link to="/" className="underline underline-offset-4">
+                <Link to="/playground" className="underline underline-offset-4">
                   Open the playground
                 </Link>
                 . Want the computer to find it step by step?{" "}

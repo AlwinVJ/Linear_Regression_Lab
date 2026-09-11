@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ConceptsRouteImport } from './routes/concepts'
 import { Route as GradientDescentRouteImport } from './routes/gradient-descent'
 import { Route as LinearRegressionRouteImport } from './routes/linear-regression'
+import { Route as PlaygroundRouteImport } from './routes/playground'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const LinearRegressionRoute = LinearRegressionRouteImport.update({
   path: '/linear-regression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlaygroundRoute = PlaygroundRouteImport.update({
+  id: '/playground',
+  path: '/playground',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
   '/linear-regression': typeof LinearRegressionRoute
+  '/playground': typeof PlaygroundRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
   '/linear-regression': typeof LinearRegressionRoute
+  '/playground': typeof PlaygroundRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,14 +61,30 @@ export interface FileRoutesById {
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
   '/linear-regression': typeof LinearRegressionRoute
+  '/playground': typeof PlaygroundRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
+  fullPaths:
+    | '/'
+    | '/concepts'
+    | '/gradient-descent'
+    | '/linear-regression'
+    | '/playground'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
+  to:
+    | '/'
+    | '/concepts'
+    | '/gradient-descent'
+    | '/linear-regression'
+    | '/playground'
   id:
-    '__root__' | '/' | '/concepts' | '/gradient-descent' | '/linear-regression'
+    | '__root__'
+    | '/'
+    | '/concepts'
+    | '/gradient-descent'
+    | '/linear-regression'
+    | '/playground'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -68,6 +92,7 @@ export interface RootRouteChildren {
   ConceptsRoute: typeof ConceptsRoute
   GradientDescentRoute: typeof GradientDescentRoute
   LinearRegressionRoute: typeof LinearRegressionRoute
+  PlaygroundRoute: typeof PlaygroundRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -100,6 +125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LinearRegressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -108,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConceptsRoute: ConceptsRoute,
   GradientDescentRoute: GradientDescentRoute,
   LinearRegressionRoute: LinearRegressionRoute,
+  PlaygroundRoute: PlaygroundRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
