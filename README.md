@@ -295,12 +295,12 @@ The objective is to make these relationships **visible and interactive**.
 
 ### Phase 3 — Polynomial Regression
 
-* [ ] Polynomial feature generation
-* [ ] Degree control
-* [ ] Curve fitting
-* [ ] Model complexity visualization
-* [ ] Overfitting demonstration
-* [ ] Training vs test error
+* [x] Polynomial feature generation
+* [x] Degree control
+* [x] Curve fitting
+* [x] Model complexity visualization
+* [x] Overfitting demonstration
+* [x] Training vs test error
 
 ### Phase 4 — Ridge Regression
 
