@@ -6,6 +6,7 @@ const items = [
   { to: "/linear-regression", label: "Linear Regression" },
   { to: "/gradient-descent", label: "Gradient Descent" },
   { to: "/polynomial-regression", label: "Polynomial Regression" },
+  { to: "/ridge-regression", label: "Ridge Regression" },
   { to: "/concepts", label: "Concepts" },
 ] as const;
 

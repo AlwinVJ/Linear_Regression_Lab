@@ -15,6 +15,7 @@ import { Route as GradientDescentRouteImport } from './routes/gradient-descent'
 import { Route as LinearRegressionRouteImport } from './routes/linear-regression'
 import { Route as PlaygroundRouteImport } from './routes/playground'
 import { Route as PolynomialRegressionRouteImport } from './routes/polynomial-regression'
+import { Route as RidgeRegressionRouteImport } from './routes/ridge-regression'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const PolynomialRegressionRoute = PolynomialRegressionRouteImport.update({
   path: '/polynomial-regression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RidgeRegressionRoute = RidgeRegressionRouteImport.update({
+  id: '/ridge-regression',
+  path: '/ridge-regression',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
+  '/ridge-regression': typeof RidgeRegressionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
+  '/ridge-regression': typeof RidgeRegressionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
+  '/ridge-regression': typeof RidgeRegressionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
+    | '/ridge-regression'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
+    | '/ridge-regression'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
+    | '/ridge-regression'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   LinearRegressionRoute: typeof LinearRegressionRoute
   PlaygroundRoute: typeof PlaygroundRoute
   PolynomialRegressionRoute: typeof PolynomialRegressionRoute
+  RidgeRegressionRoute: typeof RidgeRegressionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PolynomialRegressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ridge-regression': {
+      id: '/ridge-regression'
+      path: '/ridge-regression'
+      fullPath: '/ridge-regression'
+      preLoaderRoute: typeof RidgeRegressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   LinearRegressionRoute: LinearRegressionRoute,
   PlaygroundRoute: PlaygroundRoute,
   PolynomialRegressionRoute: PolynomialRegressionRoute,
+  RidgeRegressionRoute: RidgeRegressionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
