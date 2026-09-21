@@ -1014,18 +1014,18 @@ Gradient from penalty`}</pre>
                 <AccordionTrigger>From mathematics to code</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm">Ridge objective — MSE + λΣβⱼ²:</p>
-                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`const mse = calculateMSE(points, coefficients);
+                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`mse = calculate_mse(points, coefficients)
 
-const penalty =
-    lambda *
-    coefficients
-        .slice(1)               // skip the intercept
-        .reduce((sum, beta) => sum + beta ** 2, 0);
+penalty = regularization_strength * sum(
+    beta ** 2
+    for beta in coefficients[1:]  # skip the intercept
+)
 
-const ridgeLoss = mse + penalty;`}</pre>
+ridge_loss = mse + penalty`}</pre>
                   <p className="mt-4 text-sm">The extra gradient term:</p>
-                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`const regularizationGradient =
-    index === 0 ? 0 : 2 * lambda * beta;`}</pre>
+                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`regularization_gradient = (
+    0 if index == 0 else 2 * regularization_strength * beta
+)`}</pre>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

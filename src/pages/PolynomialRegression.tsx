@@ -771,17 +771,16 @@ x⁵ = 100,000`}</pre>
                 <AccordionTrigger>From mathematics to code</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm">Feature expansion — [x, x², x³]:</p>
-                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`const features = [
+                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`features = [
     x,
     x ** 2,
     x ** 3
-];`}</pre>
+]`}</pre>
                   <p className="mt-4 text-sm">Prediction — ŷ = β₀ + β₁x + β₂x² + β₃x³:</p>
-                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`let prediction = intercept;
+                  <pre className="mt-2 overflow-x-auto rounded-md bg-muted/40 p-3 text-xs">{`prediction = intercept
 
-for (let degree = 1; degree <= maxDegree; degree++) {
-    prediction += coefficients[degree] * x ** degree;
-}`}</pre>
+for degree in range(1, max_degree + 1):
+    prediction += coefficients[degree] * x ** degree`}</pre>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

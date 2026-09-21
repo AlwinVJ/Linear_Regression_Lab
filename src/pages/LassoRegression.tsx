@@ -925,13 +925,12 @@ Lasso`}</pre>
                     </div>
                     <pre className="mt-2 overflow-x-auto rounded-md border border-border bg-muted/40 p-3 text-xs leading-relaxed">{`MSE + λ Σ|βⱼ|
 
-const l1Penalty =
-  lambda *
-  coefficients
-    .slice(1)                // skip the intercept
-    .reduce((sum, beta) => sum + Math.abs(beta), 0);
+l1_penalty = regularization_strength * sum(
+    abs(beta)
+    for beta in coefficients[1:]  # skip the intercept
+)
 
-const lassoObjective = mse + l1Penalty;`}</pre>
+lasso_objective = mse + l1_penalty`}</pre>
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -939,10 +938,8 @@ const lassoObjective = mse + l1Penalty;`}</pre>
                     </div>
                     <pre className="mt-2 overflow-x-auto rounded-md border border-border bg-muted/40 p-3 text-xs leading-relaxed">{`S(z, γ) = sign(z)·max(|z| − γ, 0)
 
-function softThreshold(z, gamma) {
-  return Math.sign(z) *
-         Math.max(Math.abs(z) - gamma, 0);
-}`}</pre>
+def soft_threshold(z, gamma):
+    return copysign(1, z) * max(abs(z) - gamma, 0)`}</pre>
                   </div>
                 </div>
               </AccordionContent>

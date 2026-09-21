@@ -136,9 +136,9 @@ export function FormulaPanel({ steps }: { steps: OlsSteps }) {
       <Section title="From mathematics to code">
         <div className="grid gap-4 sm:grid-cols-3">
           {[
-            { math: "ŷ = β₀ + β₁x", code: "const prediction = intercept + slope * x;" },
-            { math: "error = y − ŷ", code: "const error = actual - prediction;" },
-            { math: "MSE = average(error²)", code: "const squaredError = error ** 2;" },
+            { math: "ŷ = β₀ + β₁x", code: "prediction = intercept + slope * x" },
+            { math: "error = y − ŷ", code: "error = actual - prediction" },
+            { math: "MSE = average(error²)", code: "squared_error = error ** 2" },
           ].map((row) => (
             <div key={row.math} className="space-y-2">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -146,7 +146,7 @@ export function FormulaPanel({ steps }: { steps: OlsSteps }) {
               </div>
               <pre className="rounded-md bg-muted p-3 font-mono text-xs">{row.math}</pre>
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                JavaScript
+                Python
               </div>
               <pre className="overflow-x-auto rounded-md bg-muted p-3 font-mono text-xs">
                 {row.code}

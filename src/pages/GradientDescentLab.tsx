@@ -885,18 +885,18 @@ export default function GradientDescentLab() {
           <Step n={10} title="From mathematics to code">
             <div className="grid gap-4 md:grid-cols-2">
               {[
-                ["Prediction", "ŷ = β₀ + β₁x", "const prediction = intercept + slope * x;"],
+                ["Prediction", "ŷ = β₀ + β₁x", "prediction = intercept + slope * x"],
                 [
                   "Gradient for intercept",
                   "∂MSE/∂β₀ = -(2/n) Σ(yᵢ − ŷᵢ)",
-                  "gradientIntercept =\n  (-2 / n) * residualSum;",
+                  "gradient_intercept =\n  (-2 / n) * residual_sum",
                 ],
                 [
                   "Gradient for slope",
                   "∂MSE/∂β₁ = -(2/n) Σxᵢ(yᵢ − ŷᵢ)",
-                  "gradientSlope =\n  (-2 / n) * weightedResidualSum;",
+                  "gradient_slope =\n  (-2 / n) * weighted_residual_sum",
                 ],
-                ["Update", "β = β − α × gradient", "parameter -= learningRate * gradient;"],
+                ["Update", "β = β − α × gradient", "parameter -= learning_rate * gradient"],
               ].map(([title, math, code]) => (
                 <div key={title} className="rounded-md border border-border p-4">
                   <h3 className="text-sm font-medium">{title}</h3>
