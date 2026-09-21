@@ -86,7 +86,7 @@ export default function LinearRegressionPage() {
           <section>
             <h2 className="font-display text-2xl">Ordinary Least Squares, worked out</h2>
             <div className="mt-4">
-              <FormulaPanel steps={steps} />
+              <FormulaPanel steps={steps} codeOpenByDefault />
             </div>
           </section>
         </main>
