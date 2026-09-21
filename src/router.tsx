@@ -7,7 +7,13 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
-    context: { queryClient },
+
+    basepath: "/Linear_Regression_Lab/",
+
+    context: {
+      queryClient,
+    },
+
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
