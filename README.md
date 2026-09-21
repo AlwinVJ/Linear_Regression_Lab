@@ -439,8 +439,7 @@ src/
     ├── ridge-regression.tsx
     ├── lasso-regression.tsx
     └── concepts.tsx
-
-'''
+```
 
 The application is organized as a learning journey:
 
