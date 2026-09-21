@@ -458,7 +458,7 @@ export default function RegressionLab() {
           </Step>
 
           <Step n={8} title="Ordinary Least Squares">
-            <FormulaPanel steps={steps} />
+            <FormulaPanel steps={steps} codeOpenByDefault />
           </Step>
 
           <footer className="border-t border-border pt-6 text-xs text-muted-foreground">

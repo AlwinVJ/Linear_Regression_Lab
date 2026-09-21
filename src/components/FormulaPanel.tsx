@@ -31,7 +31,13 @@ function Section({
   );
 }
 
-export function FormulaPanel({ steps }: { steps: OlsSteps }) {
+export function FormulaPanel({
+  steps,
+  codeOpenByDefault = false,
+}: {
+  steps: OlsSteps;
+  codeOpenByDefault?: boolean;
+}) {
   const [showCalc, setShowCalc] = useState(false);
 
   return (
@@ -133,7 +139,7 @@ export function FormulaPanel({ steps }: { steps: OlsSteps }) {
         )}
       </Section>
 
-      <Section title="From mathematics to code">
+      <Section title="From mathematics to code" defaultOpen={codeOpenByDefault}>
         <div className="grid gap-4 sm:grid-cols-3">
           {[
             { math: "ŷ = β₀ + β₁x", code: "prediction = intercept + slope * x" },
