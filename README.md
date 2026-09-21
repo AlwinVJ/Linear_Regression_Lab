@@ -386,6 +386,9 @@ Architecture
 
 The project separates mathematical algorithms, optimization methods, reusable visualizations, pages, and utility functions.
 
+## Project Structure
+
+```text
 src/
 ├── algorithms/
 │   ├── linearRegression.ts
@@ -437,7 +440,6 @@ src/
     ├── lasso-regression.tsx
     └── concepts.tsx
 
-Project Structure
 
 The application is organized as a learning journey:
 
