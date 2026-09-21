@@ -36,19 +36,15 @@ jobs:
 
       - name: Prepare static output
         run: |
-          mkdir -p dist
-          if [ -d ".output/public" ]; then
-            cp -r .output/public/* dist/
+          if [ -f ".output/public/index.html" ] && [ ! -f ".output/public/404.html" ]; then
+            cp .output/public/index.html .output/public/404.html
           fi
-          if [ -f "dist/index.html" ]; then
-            cp dist/index.html dist/404.html
-          fi
-          touch dist/.nojekyll
+          touch .output/public/.nojekyll
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   deploy:
     environment:
