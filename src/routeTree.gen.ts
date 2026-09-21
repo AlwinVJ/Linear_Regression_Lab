@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ConceptsRouteImport } from './routes/concepts'
 import { Route as GradientDescentRouteImport } from './routes/gradient-descent'
+import { Route as LassoRegressionRouteImport } from './routes/lasso-regression'
 import { Route as LinearRegressionRouteImport } from './routes/linear-regression'
 import { Route as PlaygroundRouteImport } from './routes/playground'
 import { Route as PolynomialRegressionRouteImport } from './routes/polynomial-regression'
@@ -30,6 +31,11 @@ const ConceptsRoute = ConceptsRouteImport.update({
 const GradientDescentRoute = GradientDescentRouteImport.update({
   id: '/gradient-descent',
   path: '/gradient-descent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LassoRegressionRoute = LassoRegressionRouteImport.update({
+  id: '/lasso-regression',
+  path: '/lasso-regression',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LinearRegressionRoute = LinearRegressionRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
+  '/lasso-regression': typeof LassoRegressionRoute
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
+  '/lasso-regression': typeof LassoRegressionRoute
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/concepts': typeof ConceptsRoute
   '/gradient-descent': typeof GradientDescentRoute
+  '/lasso-regression': typeof LassoRegressionRoute
   '/linear-regression': typeof LinearRegressionRoute
   '/playground': typeof PlaygroundRoute
   '/polynomial-regression': typeof PolynomialRegressionRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/concepts'
     | '/gradient-descent'
+    | '/lasso-regression'
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/concepts'
     | '/gradient-descent'
+    | '/lasso-regression'
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/concepts'
     | '/gradient-descent'
+    | '/lasso-regression'
     | '/linear-regression'
     | '/playground'
     | '/polynomial-regression'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ConceptsRoute: typeof ConceptsRoute
   GradientDescentRoute: typeof GradientDescentRoute
+  LassoRegressionRoute: typeof LassoRegressionRoute
   LinearRegressionRoute: typeof LinearRegressionRoute
   PlaygroundRoute: typeof PlaygroundRoute
   PolynomialRegressionRoute: typeof PolynomialRegressionRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/gradient-descent'
       fullPath: '/gradient-descent'
       preLoaderRoute: typeof GradientDescentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lasso-regression': {
+      id: '/lasso-regression'
+      path: '/lasso-regression'
+      fullPath: '/lasso-regression'
+      preLoaderRoute: typeof LassoRegressionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/linear-regression': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ConceptsRoute: ConceptsRoute,
   GradientDescentRoute: GradientDescentRoute,
+  LassoRegressionRoute: LassoRegressionRoute,
   LinearRegressionRoute: LinearRegressionRoute,
   PlaygroundRoute: PlaygroundRoute,
   PolynomialRegressionRoute: PolynomialRegressionRoute,

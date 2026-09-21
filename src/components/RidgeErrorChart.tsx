@@ -107,10 +107,20 @@ export function RidgeErrorChart({
               onClick={() => onSelectLambda(r.lambda)}
             />
             {r.ok && Number.isFinite(r.trainMse) && r.trainMse > 0 && (
-              <circle cx={sx(r.lambda)} cy={sy(r.trainMse)} r={3.5} className="fill-line" />
+              <circle
+                cx={Number(sx(r.lambda).toFixed(2))}
+                cy={Number(sy(r.trainMse).toFixed(2))}
+                r={3.5}
+                className="fill-line"
+              />
             )}
             {showTest && r.ok && r.testMse !== null && r.testMse > 0 && Number.isFinite(r.testMse) && (
-              <circle cx={sx(r.lambda)} cy={sy(r.testMse)} r={3.5} className="fill-resid-neg" />
+              <circle
+                cx={Number(sx(r.lambda).toFixed(2))}
+                cy={Number(sy(r.testMse).toFixed(2))}
+                r={3.5}
+                className="fill-resid-neg"
+              />
             )}
           </g>
         ))}
